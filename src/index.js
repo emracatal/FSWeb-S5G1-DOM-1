@@ -60,14 +60,57 @@ const headerNav = [
   "İletişim",
 ];
 const nav = document.querySelectorAll(".container nav a");
-console.log(nav);
 for (let i = 0; i < nav.length; i++) {
   nav[i].textContent = headerNav[i];
 }
 
-//sağdaki logo
-document.getElementById("logo-img").src = "http://localhost:9000/img/logo.png";
+/*dynamic object keys ile çözümü
+const menuTags=document.querySelectorAll(".container nav a")
+menuTags.forEach((m,i)=> {
+  return (m.textContent=siteContent.nav[`nav-item-${i}`])
+})
+*/
+
+//img'lar
+document
+  .getElementById("logo-img")
+  .setAttribute("src", siteContent.images["logo-img"]);
+
+document
+  .getElementById("cta-img")
+  .setAttribute("src", siteContent.images["cta-img"]);
+
+document
+  .getElementById("middle-img")
+  .setAttribute("src", siteContent.images["accent-img"]);
 
 //h1
-const h1 = document.getElementsByTagName("h1");
-h1.textContent = "Bu DOM Mükemmel";
+document.querySelector("h1").textContent = siteContent.cta.h1;
+document.querySelector("button").textContent = siteContent.cta.button;
+
+//footer copyright
+document.querySelector("footer a").textContent = siteContent.footer.copyright;
+
+const h4ler = document.querySelectorAll(".text-content h4");
+h4ler[0].textContent = "Özellikler";
+h4ler[1].textContent = "Hakkında";
+h4ler[2].textContent = "Servisler";
+h4ler[3].textContent = "Ürünler";
+h4ler[4].textContent = "Vizyon";
+
+const pler = document.querySelectorAll(".text-content p");
+pler[0].textContent =
+  "Özellikler içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+pler[1].textContent =
+  "Hakkında içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+pler[2].textContent =
+  "Servisler içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+pler[3].textContent =
+  "Ürünler içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+pler[4].textContent =
+  "Vizyon içeriği elementum magna eros, ac posuere elvit tempus et. Suspendisse vel tempus odio, in interdutm nisi. Suspendisse eu ornare nisl. Nullam convallis augue justo, at imperdiet metus scelerisque quis.";
+
+document.querySelector(".contact h4").textContent = "İletişim";
+
+const iletisim1 = document.querySelector(".contact p");
+iletisim1.textContent = siteContent.iletisim.adres;
